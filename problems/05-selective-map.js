@@ -49,10 +49,11 @@ function selectiveMap(array, selector, mapper) {
     for (let i = 0; i < array.length; i++){
         let el = array[i];
         let test1 = selector(el)
-        if (test1){
-            let test2 = mapper(el)
+        if (test1 === true) {
+            let test2 = mapper(el);
             results.push(test2)
-
+        } else {
+            results.push(el);
         }
     }
 
