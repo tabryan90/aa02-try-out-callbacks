@@ -17,7 +17,15 @@ console.log(result2);   // [ 'RUN!', 'FORREST!' ]
 *******************************************************************************/
 
 function myMap(array, cb) {
-    // Your code here 
+    // Your code here
+    let results = [];
+
+    for ( let i = 0; i < array.length; i++ ) {
+        let el = array[i];
+        el = cb(el);
+        results.push(el);
+    }
+    return results;
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
