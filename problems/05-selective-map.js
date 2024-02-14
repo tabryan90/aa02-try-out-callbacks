@@ -45,45 +45,24 @@ problem.
 *******************************************************************************/
 
 function selectiveMap(array, selector, mapper) {
-    let results = []
+    let results = [];
+
     for (let i = 0; i < array.length; i++){
         let el = array[i];
         let test1 = selector(el)
-        if (test1 === true) {
+
+        if (test1) {
             let test2 = mapper(el);
             results.push(test2)
         } else {
             results.push(el);
         }
+
     }
 
-return results;
+    return results;
 }
 
-function isEven(n) {
-    return n % 2 === 0;
-}
-
-function isPositive(n) {
-    return n > 0;
-}
-
-function square(n) {
-    return n * n;
-}
-
-function flipSign(n) {
-    return n * -1;
-}
-
-console.log(selectiveMap([8, 5, 10, 4], isEven, square));
-// [ 64, 5, 100, 16 ]
-
-console.log(selectiveMap([-10, 4, 7, 6, -2, -9], isEven, flipSign));
-// [ 10, -4, 7, -6, 2, -9 ]
-
-console.log(selectiveMap([-10, 4, 7, 6, -2, -9], isPositive, square));
-// [-10, 16, 49, 36, -2, -9]
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
     module.exports = selectiveMap;
